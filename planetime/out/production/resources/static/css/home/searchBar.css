@@ -1,0 +1,50 @@
+.search-container {
+    text-align: center;
+}
+
+.inner {
+    position: relative;
+    width: 600px;
+    height: 40px;
+    margin: 20px auto;
+    border: 1px solid #bdc1c6;
+    border-radius: 20px;
+    background:white;
+}
+
+.search-input {
+    width: 80%;
+    height: 100%;
+    margin-left:-5%;
+    border-color: #bdc1c6;
+    border: 0px;
+    font-size: 16px;
+    outline: none;
+}
+
+.searching {
+    position: absolute;
+    left: 10px;
+    top: 20%;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.icon-ect {
+    position: absolute;
+    right: 10px;
+    top: 20%;
+}
+
+.fa-keyboard {
+    margin-right: 10px;
+}
+
+.searchbar{
+    margin-top:60px;
+    width:75%;
+    height:8%;
+}
+

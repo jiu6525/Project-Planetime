@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--    css     -->
+    <link href="/css/home/star.css" rel="stylesheet">
+    <link href="/css/home/home.css" rel="stylesheet">
+    <link href="/css/home/menuBar.css" rel="stylesheet">
+    <link href="/css/home/searchBar.css" rel="stylesheet">
+
+    <!--    js      -->
+    <script src="/js/home/background.js" defer></script>
+    <script src="/js/home/menuBar.js" defer></script>
+
+    <title>planetime!</title>
+</head>
+
+<body>
+<div class="backSky">
+    <svg class="sky"></svg>
+</div>
+
+<div class="section1">
+    <div th:replace="fragments/home/menuBar :: menuBar"></div>
+    <div class="common">
+        <a href="/login"><i class="fa-solid fa-circle-user fa-2xl" style="color: #f1f4f8;"></i></a>
+    </div>
+</div>
+
+<div class="section2">
+    <div class="section2-1"></div>
+
+    <div class="section2-2">
+        <div class="section2-2-1">
+            <div class="section2-2-2">
+                <a href="/home2"><img src="img/logo_white.png" style="height:100px"></a>
+            </div>
+            <div th:replace="fragments/home/searchBar :: searchBar"></div>
+        </div>
+    </div>
+
+    <div class="section2-3"></div>
+
+</div>
+
+<div class="section3"></div>
+
+</body>
+</html>

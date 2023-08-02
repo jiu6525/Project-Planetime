@@ -1,0 +1,56 @@
+
+body {
+    background:#080D19;
+    margin: 0;
+    padding: 0;
+    height : 923px;
+    width : 1920px;
+}
+
+.section1{
+    height : 5%;
+    }
+
+.section2{
+    display: flex;
+    height:90%;
+    position:relative;
+    z-index:2;
+    }
+
+.section2-1{
+    width:25%;
+    }
+
+.section2-2{
+    width:50%;
+    }
+
+.section2-2-1{
+    margin-top:25%;
+    height:55%;
+    text-align:center;
+    margin-left:8%;
+    }
+
+.section2-2-2{
+    }
+
+.section2-3{
+    width:25%;
+    }
+
+.section3{
+    height : 5%;
+    }
+
+
+.common{
+    position : relative;
+    z-index : 3;
+    float:right;
+    padding-top:2%;
+    margin-top:3px;
+    margin-right:30px;
+}
+
