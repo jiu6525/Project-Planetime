@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="/css/home/star.css" rel="stylesheet">
+    <link href="/css/login/login.css" rel="stylesheet">
+    <script src="/js/login/login.js" defer></script>
+    <script src="/js/home/background.js" defer></script>
+</head>
+<body>
+    <div class="backSky">
+        <svg class="sky"></svg>
+    </div>
+    <main id="main-holder">
+        <a href="/home1"><img src="img/logo.png" style="height:70px"></a>
+        <form id="login-form">
+            <div id="login-box">
+                <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+                <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+            </div>
+            <input type="submit" value="Login" id="login-form-submit">
+        </form>
+        <div class="login-subBox">
+            <div class="login-subBox1">
+                이메일 저장
+            </div>
+            <div class="login-subBox2">
+                <div class="findId">아이디 찾기</div>
+                <div class="findPwd">비밀번호 찾기</div>
+                <div class="join">회원가입</div>
+            </div>
+            <div class="login-subBox3">
+                <div class="login-kakaoTalk">카카오톡 로그인</div>
+                <div class="login-google">구글 로그인</div>
+            </div>
+        </div>
+        <div class="reserved">
+            저작권 표시 라인
+        </div>
+    </main>
+</body>
+</html>
