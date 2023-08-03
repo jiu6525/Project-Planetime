@@ -72,8 +72,9 @@ body {
 }
 
 .reserved {
-    height : 90%;
+    height : 60%;
     margin-bottom:1%;
+    color : darkgray;
 }
 
 .login-subBox {
@@ -93,4 +94,6 @@ body {
 .login-subBox3 {
     display : flex;
     justify-content: space-around;
+    border : 1px solid lightgray;
+    border-width : 0px 0px 1px 0px;
 }
