@@ -17,18 +17,28 @@ public class HomeController {
 
     @RequestMapping("/home1")
     public String test1(){
-        return "home1";
+        return "home/home1";
     }
 
     @RequestMapping("/home2")
     public String test2(){
-        return "home2";
+        return "home/home2";
     }
+
+    @RequestMapping("/home3")
+    public String home3(){
+        return "home/home3";
+    }
+
 
     @RequestMapping("/login")
-    public String test3(){
-        return "/login";
+    public String login(){
+        return "login/login";
     }
 
+    @RequestMapping("/join")
+    public String join(){
+        return "login/join";
+    }
 
 }

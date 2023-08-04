@@ -62,7 +62,7 @@ body {
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    background-color: #080D19;;
+    background-color: #080D19;
     cursor: pointer;
     outline: none;
 }
@@ -96,4 +96,13 @@ body {
     justify-content: space-around;
     border : 1px solid lightgray;
     border-width : 0px 0px 1px 0px;
+}
+
+.login-subBox2 a{
+    text-decoration:none;
+    color : black;
+}
+
+.login-subBox2 a:hover{
+    color : white;
 }
