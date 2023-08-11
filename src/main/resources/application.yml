@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    generate-ddl: 'false'
+    database: oracle
+    hibernate:
+      ddl-auto: create
+    show-sql: 'true'
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+  thymeleaf:
+    cache: 'false'
+    prefix: classpath:/templates/fragments/
+  datasource:
+    password: tiger
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: c##planetime
+    url: jdbc:oracle:thin:@localhost:1521:XE
+  devtools:
+    livereload:
+      enabled: 'true'
+logging:
+  level:
+    org:
+      hibernate: info
+server:
+  port: '8081'
+
+
+handlebars:
+  suffix: .html
+  expose-session-attributes: true
