@@ -3,14 +3,15 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<!--    css     -->
+    <!--    css     -->
     <link href="/css/home/star.css" rel="stylesheet">
     <link href="/css/home/home.css" rel="stylesheet">
     <link href="/css/home/menuBar.css" rel="stylesheet">
     <link href="/css/home/searchBar.css" rel="stylesheet">
 
-<!--    js      -->
+    <!--    js      -->
     <script src="/js/home/background.js" defer></script>
     <script src="/js/home/menuBar.js" defer></script>
 
@@ -18,34 +19,44 @@
 </head>
 
 <body>
-<div class="backSky">
-    <svg class="sky"></svg>
-</div>
-
-<div class="section1">
-    <div th:replace="home/menuBar :: menuBar"></div>
-    <div class="common">
-        <a href="/login"><i class="fa-solid fa-circle-user fa-2xl" style="color: #f1f4f8;"></i></a>
+    <div class="backSky">
+        <svg class="sky"></svg>
     </div>
-</div>
 
-<div class="section2">
-    <div class="section2-1"></div>
+    <div class="section">
+        <div class="section1">
+            <div th:replace="home/menuBar :: menuBar"></div>
+<!--            <div class="common">-->
+                <div th:if="${session.greeting != null}" class="onLogin">
+                    <H2 th:text="${session.greeting}" style=""></H2>
+                    <a href="/doLogout">로그아웃</a>
+                </div>
+                <div th:if="${session.greeting == null}">
+                    <a href="/loginForm"><i class="fa-solid fa-circle-user fa-2xl" style="color: #f1f4f8;"></i></a>
+                </div>
+<!--            </div>-->
+        </div>
 
-    <div class="section2-2">
-        <div class="section2-2-1">
-            <div class="section2-2-2">
-                <a href="/home1"><img src="img/logo_white_main.png" style="height:100px"></a>
+        <div class="section2">
+            <div class="section2-1"></div>
+
+            <div class="section2-2">
+                <div class="section2-2-1">
+                    <div class="section2-2-2">
+                        <a href="/home1"><img src="img/logo_white_main.png" style="height:100px"></a>
+                    </div>
+                    <div th:replace="home/searchBar :: searchBar"></div>
+                </div>
             </div>
-            <div th:replace="home/searchBar :: searchBar"></div>
+
+            <div class="section2-3"></div>
+
+        </div>
+
+        <div class="section3">
         </div>
     </div>
 
-    <div class="section2-3"></div>
-
-</div>
-
-<div class="section3"></div>
 
 </body>
 </html>

@@ -15,10 +15,10 @@
     </div>
     <main id="main-holder">
         <a href="/home1"><img src="img/logo_main.png" style="height:70px"></a>
-        <form id="login-form">
+        <form id="login-form" action="/doLogin" method="post">
             <div id="login-box">
-                <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-                <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+                <input type="text"  class="login-form-field" name="memberId" placeholder="Id">
+                <input type="password"  class="login-form-field" name="memberPwd" placeholder="Pwd">
             </div>
             <input type="submit" value="Login" id="login-form-submit">
         </form>
@@ -29,7 +29,7 @@
             <div class="login-subBox2">
                 <div class="findId"><a href="">아이디 찾기</a></div>
                 <div class="findPwd"><a href="">비밀번호 찾기</a></div>
-                <div class="join"><a href="/join">회원가입</a></div>
+                <div class="join"><a href="/joinForm">회원가입</a></div>
             </div>
             <div class="login-subBox3">
                 <div class="login-kakaoTalk">카카오톡 로그인</div>

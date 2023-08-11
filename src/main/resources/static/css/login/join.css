@@ -51,7 +51,6 @@ a{
 
 /*input 중 radio 는 width 가 100%면 안되니까 */
 .member input:not(input[type=radio]),.member select{
-    border: 1px solid #dadada;
     padding: 15px;
     width: 100%;
     margin-right:-8%;
@@ -73,6 +72,10 @@ color:#fff
     flex:1;
 } */
 
+.field.birth{
+    width : 65%;
+}
+
 .field.tel-number div {
     display: flex;
 }
@@ -85,8 +88,27 @@ color:#fff
     flex:1;
 }
 
+.field.gender{
+    display : flex;
+    margin-left:1%;
+    width:40%;
+}
+
+.genderBox{
+    width : 20%;
+}
+
+.birthBox{
+    width : 19%;
+}
+
+.birthGender{
+    display : flex;
+    margin-top:4%;
+    width:115%;
+}
+
 .field.gender div{
-    border: 1px solid #dadada;
     padding: 15px 5px;
     background-color: #fff;
 }
@@ -104,13 +126,13 @@ color:#fff
     pointer-events: none; /*자체가 가지고 있는 pointer event 를 없애준다 */
 }
 
-.userpw{
+.memberPwd{
     background:url(./images/images2/icon-01.png) no-repeat center right 15px;
     background-size: 20px;
     background-color: #fff;
 }
 
-.userpw-confirm{
+.memberPwd-confirm{
     background:url(./images/images2/icon-02.png) no-repeat center right 15px;
     background-size: 20px;
     background-color: #fff;

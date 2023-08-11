@@ -31,14 +31,8 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/login")
-    public String login(){
-        return "login/login";
-    }
 
-    @RequestMapping("/join")
-    public String join(){
-        return "login/join";
-    }
+
+
 
 }
