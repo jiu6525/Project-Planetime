@@ -26,7 +26,7 @@ public class MemberController {
     @GetMapping("/joinForm")
     public String createForm(Model model){
         model.addAttribute("memberDTO", new MemberDTO());
-        return "login/joinForm";
+        return "member/joinForm";
     }
 
     @ModelAttribute("genders")
@@ -39,7 +39,7 @@ public class MemberController {
     public String join(MemberDTO dto, BindingResult result){
 
         if (result.hasErrors()){
-            return "login/joinForm";
+            return "member/joinForm";
         }
 
         memberService.join(dto);
@@ -48,6 +48,6 @@ public class MemberController {
 
     @RequestMapping("/loginForm")
     public String login(){
-        return "login/loginForm";
+        return "member/loginForm";
     }
 }
