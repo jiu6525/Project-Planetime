@@ -16,6 +16,19 @@
     <script src="/js/home/menuBar.js" defer></script>
 
     <title>planetime!</title>
+
+<!--    <script type="text/javascript" th:inline="javascript">-->
+<!--        const jiu =  [[${session.greeting}]];-->
+<!--    </script>-->
+    <script>
+    $(function(){
+        $("div").on("click",function() {
+            console.log("div 태그의 클릭 이벤트");
+        }
+    });
+
+</script>
+
 </head>
 
 <body>
@@ -28,11 +41,12 @@
             <div th:replace="home/menuBar :: menuBar"></div>
 <!--            <div class="common">-->
                 <div th:if="${session.greeting != null}" class="onLogin">
-                    <H2 th:text="${session.greeting}" style=""></H2>
-                    <a href="/doLogout">로그아웃</a>
+                    <a href="/doLogout"><i class="fa-solid fa-circle-user fa-2xl" style="color: #f1f4f8;"></i></a>
+<!--                                        <span th:text="${session.greeting}" style=""></span>-->
                 </div>
-                <div th:if="${session.greeting == null}">
-                    <a href="/loginForm"><i class="fa-solid fa-circle-user fa-2xl" style="color: #f1f4f8;"></i></a>
+                <div th:if="${session.greeting == null}" class="offLogin">
+
+                    <a href="/loginForm"><i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #f6f7f9;"></i></a>
                 </div>
 <!--            </div>-->
         </div>

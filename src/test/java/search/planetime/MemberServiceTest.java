@@ -7,12 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import search.planetime.domain.Member;
-import search.planetime.repository.MemberRepository;
-import search.planetime.service.MemberService;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -21,12 +15,6 @@ import static org.junit.Assert.fail;
 @RunWith(SpringRunner.class)
 @Transactional
 public class MemberServiceTest {
-
-    @Autowired
-    MemberService memberService;
-
-    @Autowired
-    MemberRepository memberRepository;
 
     @Test
     @Commit

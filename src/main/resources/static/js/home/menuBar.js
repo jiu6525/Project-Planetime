@@ -1,5 +1,5 @@
-  const divLst = document.getElementsByTagName('div')
-  console.log(divLst)
+  const divLst = document.getElementsByTagName('div');
+  console.log(divLst);
   // 버튼가져오기
   const bentoBtn = document.getElementById('bentoBtn');
   bentoBtn.addEventListener('click', function() {
@@ -15,3 +15,5 @@
   // for (let i = 0; i < 7; i++) {
   //   const item = document.createElement('div')
   // }
+
+

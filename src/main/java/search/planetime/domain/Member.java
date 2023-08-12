@@ -14,25 +14,35 @@ import java.util.Date;
 @Table(name = "member")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Member {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "member_no")
     private Long no;
-    @NotEmpty
+
+    @Column(nullable = false, unique = true)
     private String memberId;
+
     @NotEmpty
     private String memberPwd;
+
     @NotEmpty
     private String name;
+
     @NotEmpty
     private String birth;
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
     @NotEmpty
     private String email;
+
     @NotEmpty
     private String phone;
+
     private String signDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
     private String memberType;
