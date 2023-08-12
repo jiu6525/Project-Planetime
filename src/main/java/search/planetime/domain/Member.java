@@ -47,15 +47,15 @@ public class Member {
 
     private String memberType;
 
-    @PrePersist
-    public void prePersist(){
-        this.memberType = this.memberType == null ? "user" : this.memberType;
-    }
+//    @PrePersist
+//    public void prePersist(){
+//        this.memberType = this.memberType == null ? "user" : this.memberType;
+//    }
 
 
     @Builder
     public Member(String memberId, String memberPwd, String name, String birth, Gender gender,
-                  String email, String phone){
+                  String email, String phone, String memberType){
         this.memberId = memberId;
         this.memberPwd = memberPwd;
         this.name = name;
@@ -63,7 +63,7 @@ public class Member {
         this.gender = gender;
         this.email = email;
         this.phone = phone;
-
+        this.memberType = memberType;
     }
 
 }

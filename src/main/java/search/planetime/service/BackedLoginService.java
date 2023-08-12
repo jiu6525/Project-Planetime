@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import search.planetime.domain.Member;
+import search.planetime.memberDTO.MemberDTO;
 import search.planetime.repository.MemberRepository;
 
 import java.util.Arrays;
@@ -20,7 +21,8 @@ public class BackedLoginService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String memberId) throws UsernameNotFoundException {
-        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저입니다."));
+        MemberDTO member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저입니다."));
         return new User(member.getMemberId(), member.getMemberPwd(), Arrays.asList(new SimpleGrantedAuthority(member.getMemberType())));
     }
+
 }
