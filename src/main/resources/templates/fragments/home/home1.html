@@ -13,21 +13,32 @@
 
     <!--    js      -->
     <script src="/js/home/background.js" defer></script>
-    <script src="/js/home/menuBar.js" defer></script>
 
+    <!--  jquery  -->
+    <script type="text/javascript" th:src="@{js/jquery-3.7.0.min.js}"></script>
     <title>planetime!</title>
 
 <!--    <script type="text/javascript" th:inline="javascript">-->
 <!--        const jiu =  [[${session.greeting}]];-->
 <!--    </script>-->
     <script>
-    $(function(){
-        $("div").on("click",function() {
-            console.log("div 태그의 클릭 이벤트");
-        }
-    });
+        const jiu =  "[[${session.greeting}]]";
+            $(function(){
+                $("#bentoBtn").on("click",function() {
+                    if(jiu != ''){
+                        const menu = document.getElementById('menu-list')
+                        if (menu.style.height) {
+                          menu.style.height = null;
+                        } else {
+                          menu.style.height = '300px';
+                        }
+                    }else{
+                        location.href="/loginForm";
+                    }
+                });
+            });
 
-</script>
+    </script>
 
 </head>
 
