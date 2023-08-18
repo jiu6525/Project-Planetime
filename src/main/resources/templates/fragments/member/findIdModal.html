@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 찾기 모달</title>
+</head>
+
+<body>
+    <div th:fragment="modal">
+        <div id="modal" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>아이디 조회 결과</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" id="idValue"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
