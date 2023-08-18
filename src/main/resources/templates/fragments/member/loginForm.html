@@ -14,11 +14,11 @@
         <svg class="sky"></svg>
     </div>
     <main id="main-holder">
-        <a href="/home1"><img src="img/logo_main.png" style="height:70px"></a>
+        <a href="/main"><img src="img/logo_main.png" style="height:70px"></a>
         <form id="login-form" action="/doLogin" method="post">
             <div id="login-box">
-                <input type="text"  class="login-form-field" name="memberId" placeholder="Id">
-                <input type="password"  class="login-form-field" name="memberPwd" placeholder="Pwd">
+                <input type="text"  class="login-form-field" id="memberId" name="memberId" placeholder="Id">
+                <input type="password"  class="login-form-field" id="memberPwd" name="memberPwd" placeholder="Pwd">
             </div>
             <input type="submit" value="Login" id="login-form-submit">
         </form>
@@ -28,7 +28,7 @@
             </div>
             <div class="login-subBox2">
                 <div class="findId"><a href="/findIdForm">아이디 찾기</a></div>
-                <div class="findPwd"><a href="">비밀번호 찾기</a></div>
+                <div class="findPwd"><a href="/findPwdForm">비밀번호 찾기</a></div>
                 <div class="join"><a href="/joinForm">회원가입</a></div>
             </div>
             <div class="login-subBox3">

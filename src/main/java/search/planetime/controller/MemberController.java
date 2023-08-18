@@ -1,21 +1,19 @@
 package search.planetime.controller;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import search.planetime.DTO.MailDTO;
 import search.planetime.domain.Gender;
-import search.planetime.domain.Member;
-import search.planetime.domain.findId;
-import search.planetime.memberDTO.MemberDTO;
+import search.planetime.DTO.MemberDTO;
 import search.planetime.service.MemberService;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Controller
 @RequiredArgsConstructor
@@ -53,7 +51,7 @@ public class MemberController {
         }
 
         memberService.join(dto);
-        return "redirect:/home1";
+        return "redirect:/main";
     }
 
 //  사용자 아이디 찿기폼으로 이동
@@ -70,5 +68,29 @@ public class MemberController {
     public String findId(@RequestParam("name") String name,@RequestParam("phone") String phone){
         String member = "찾으려는 아이디는 "+memberService.findId(name, phone) + " 입니다.";
         return member;
+    }
+
+//  비밀번호 찾기 폼으로 이동
+    @GetMapping("/findPwdForm")
+    public String findPwdForm(Model model){
+        model.addAttribute("MailDTO", new MailDTO());
+        return "member/findPwdForm";
+    }
+
+//  비밀번호 재설정
+    @PostMapping("/findPwdForm")
+    public String sendMail(MailDTO mailDTO,Model model) throws IOException {
+        int changePwdCk = memberService.findPwd(mailDTO);
+        System.out.println("메일 전송 완료");
+
+        if (changePwdCk == 1){
+            model.addAttribute("msg", "메일로 재설정 비밀번호가 전송되었습니다 확인해주세요");
+            model.addAttribute("url", "/main");
+        }else{
+            model.addAttribute("msg", "재설정 실패.");
+            model.addAttribute("url", "/findPwdForm");
+        }
+        return "/alert";
+
     }
 }

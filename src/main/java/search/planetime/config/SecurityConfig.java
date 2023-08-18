@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/doLogout")
                 .invalidateHttpSession(true)
                 .permitAll()
-                .logoutSuccessUrl("/home1");
+                .logoutSuccessUrl("/main");
 
     }
     //passwordEncoder

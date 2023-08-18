@@ -1,8 +1,7 @@
-package search.planetime.memberDTO;
+package search.planetime.DTO;
 
 import lombok.*;
 import search.planetime.domain.Gender;
-import javax.validation.constraints.NotEmpty;
 
 @Data
 @NoArgsConstructor
@@ -17,6 +16,5 @@ public class MemberDTO {
     private String email;
     private String phone;
     private String memberType;
-
 
 }
