@@ -21,42 +21,29 @@ public class Member {
     @GeneratedValue
     @Column(name = "member_no")
     private Long no;
-
     @Column(nullable = false, unique = true)
     private String memberId;
-
     @Setter
-    @NotEmpty
     private String memberPwd;
-
-    @NotEmpty
     private String name;
-
-    @NotEmpty
     private String birth;
-
     @Enumerated(EnumType.STRING)
     private Gender gender;
-
-    @NotEmpty
     private String email;
-
-    @NotEmpty
     private String phone;
-
     private String signDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-
     private String memberType;
+    private String provider;
+    private String providerId;
 
 //    @PrePersist
 //    public void prePersist(){
 //        this.memberType = this.memberType == null ? "user" : this.memberType;
 //    }
 
-
     @Builder
     public Member(String memberId, String memberPwd, String name, String birth, Gender gender,
-                  String email, String phone, String memberType){
+                  String email, String phone, String memberType, String provider, String providerId){
         this.memberId = memberId;
         this.memberPwd = memberPwd;
         this.name = name;
@@ -65,6 +52,8 @@ public class Member {
         this.email = email;
         this.phone = phone;
         this.memberType = memberType;
+        this.provider = provider;
+        this.providerId = providerId;
     }
 
 }
