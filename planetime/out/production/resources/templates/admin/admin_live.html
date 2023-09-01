@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- api link -->
+    <script src="https://kit.fontawesome.com/803f3553c2.js" crossorigin="anonymous"></script> <!-- fontawesome -->
+
+    <!-- css link -->
+    <link href="/css/reset.css" rel="stylesheet">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/admin_home.css}"/>-->
+    <link href="/css/admin/admin_home.css" rel="stylesheet">
+<!--    <link href="/css/admin/admin_home.css?ver=1" rel="stylesheet">-->
+    <style>
+        @font-face {
+            font-family: 'ONE-Mobile-Title';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        *{
+            font-family: 'ONE-Mobile-Title';
+        }
+        body,html{
+            min-width: 1200px;
+            max-width:1920px;
+            height: 100%;
+            overflow: hidden;
+            margin:0;
+        }
+        p{
+            margin:0;
+        }
+        .admin_box, .admin_left, .admin_right{
+            display: inline-block;
+        }
+        .admin_box{
+            width: 100%;
+            height: 100%;
+        }
+        /* 좌측박스 css */
+        .admin_left {
+            width: 30%;
+            height: 100%;
+            float: left;
+            background-color: #3a3a3a;
+        }
+        .admin_left_box{
+            width: 90%;
+            height: 95%;
+            margin: auto;
+            padding: 3%;
+            transform: translate(0, 1%);
+        }
+        .admin_logo{
+            display: block;
+            width: 320px;
+            height: 40px;
+            background-image:url("../../static/img/logo_white.png");
+            background-repeat: no-repeat;
+            margin: 0 0 6% 3%;
+        }
+        .admin_live_category_A, .admin_live_category_B{
+            padding: 10px 0 10px 0;
+            margin: 1% 0 1% 3%;
+        }
+        /*
+        .admin_live_category_A, .admin_live_category_B, .admin_live_category_A>div, .admin_live_category_B>div{
+            display: inline-block;
+        }
+        */
+        .gray_lineA, .gray_lineB{
+            border-bottom: 1px solid gray;
+        }
+        .gray_lineA{
+            margin: 10px 0;
+        }
+        .gray_lineB{
+            padding: 20px;
+        }
+        /* font, 아이콘 css */
+        .fa-fire,.fa-user-gear{
+            font-size: 28px;
+            transform: translate(0, 10%);
+            float: left;
+        }
+        .fa-fire{
+            color: #ac3232;
+        }
+        .fa-user-gear{
+            color: #f1c895;
+        }
+        .admin_live_category_A>a>div, .admin_live_category_B>a>div{
+            float: left;
+            color: white;
+            font-size: 32px;
+        }
+        .admin_live_category_A>a>div{
+            margin-left: 15px;
+        }
+        .admin_live_category_B>a>div{
+            margin-left: 5px;
+        }
+        /* 우측박스 css */
+        .admin_right{
+            width:70%;
+            height: 100%;
+            float: left;
+            /*background:blanchedalmond;*/
+        }
+        /* 상단 표시 */
+        .admin_right_view{
+            background: #ededed;
+            width: 100%;
+            height: 7.9%;
+            box-shadow: 0 0 0 1px #9d9d9d inset;
+        }
+        .admin_right_view_left{
+            display: inline-block;
+            float: left;
+            margin: 3% 0 0 2%;
+        }
+        .admin_right_view_left>p{
+            font-size: 28px;
+        }
+        .admin_right_view_right{
+            margin: 2.5% 2% 0 0;
+        }
+        .admin_right_view_right>input:hover{
+            background: darkblue;
+            box-shadow: 0 0 0 1px gray inset;
+            cursor: pointer;
+        }
+        .admin_right_view_right>input{
+            font-size: 24px;
+            padding: 7px;
+            border-radius: 10px;
+            background: darkred;
+            color: white;
+            border: none;
+        }
+
+        .admin_add {
+            margin-right: 10px;
+        }
+        .admin_right_view_right, .admin_right_view_right>div{
+            display: inline-block;
+            float: right;
+        }
+        /* 하단 콘텐츠*/
+        .admin_right_content {
+            height: 92.1%;
+        }
+        .statistics{
+            width: 35%;
+            height: 100%;
+            float: left;
+        }
+        /* 차트1 */
+        .live_user{
+            width: 100%;
+            height: 33%;
+            /*background: cornflowerblue;*/
+        }
+        .live_user_box{
+            width: 90%;
+            height: 90%;
+            top: 50%;
+            background: gray;
+            border:1px solid gray;
+            margin: auto;
+            text-align: center;
+            transform: translate(0, 5%);
+        }
+        /* 차트2 */
+        .cumulative_vistors{
+            width: 100%;
+            height: 33%;
+            /*background: darkgoldenrod;*/
+        }
+        .cumulative_vistors_box{
+            width: 90%;
+            height: 90%;
+            top: 50%;
+            background: gray;
+            border:1px solid gray;
+            margin: auto;
+            text-align: center;
+            transform: translate(0, 5%);
+        }
+        /* 차트3 */
+        .eve_vistiors{
+            width: 100%;
+            height: 34%;
+            /*background: darkorange;*/
+        }
+        .eve_vistiors_box{
+            width: 90%;
+            height: 90%;
+            top: 50%;
+            background: gray;
+            border:1px solid gray;
+            margin: auto;
+            text-align: center;
+            transform: translate(0, 5%);
+        }
+        /* 실시간 검색어 + 캘린더 박스*/
+        .admin_menu{
+            width: 65%;
+            height: 100%;
+            float: right;
+        }
+        /* 실시간 검색어 css */
+        .live_search_ranking{
+            height: 50%;
+            /*background: burlywood;*/
+        }
+        .live_search_ranking_box{
+            width: 95%;
+            height: 95%;
+            top: 50%;
+            background: gray;
+            border:1px solid gray;
+            margin: auto;
+            text-align: center;
+            transform: translate(0, 2.5%);
+        }
+        /* 캘린더 css */
+        .calender{
+            height: 50%;
+            /*background: darkred;*/
+        }
+        .calender_box{
+            width: 95%;
+            height: 95%;
+            top: 50%;
+            background: gray;
+            border:1px solid gray;
+            margin: auto;
+            text-align: center;
+            transform: translate(0, 2.5%);
+        }
+    </style>
+    <title>planetime_admin_live</title>
+</head>
+
+<body>
+    <div class="admin_box">
+      <div class="admin_left">
+          <div class="admin_left_box">
+              <div class="admin_logo"></div>
+              <div class="gray_lineA"></div>
+              <div class="admin_live_category_A">
+                  <a href="#">
+                      <i class="fa-solid fa-fire"></i>
+                      <div>실시간 접속자</div>
+                  </a>
+              </div>
+              <div class="gray_lineB"></div>
+              <div class="admin_live_category_B">
+                  <a href="#">
+                      <i class="fa-solid fa-user-gear"></i>
+                      <div>회원관리</div>
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div class="admin_right">
+          <div class="admin_right_view">
+              <div class="admin_right_view_left">
+                  <p>실시간 접속자</p>
+              </div>
+              <div class="admin_right_view_right">
+                  <input class="admin_add" type="button" value="관리자 추가">
+                  <input class="mail_send" type="button" value="메일 보내기">
+              </div>
+          </div>
+          <div class="admin_right_content">
+            <div class="statistics">
+                <div class="live_user">
+                    <div class="live_user_box">Live_User</div>
+                </div>
+                <div class="cumulative_vistors">
+                    <div class="cumulative_vistors_box">Cumulative_Vistors</div>
+                </div>
+                <div class="eve_vistiors">
+                    <div class="eve_vistiors_box">Eve_Vistiors</div>
+                </div>
+            </div>
+            <div class="admin_menu">
+                <div class="live_search_ranking">
+                    <div class="live_search_ranking_box">Live_Search_Ranking</div>
+                </div>
+                <div class="calender">
+                    <div class="calender_box">Calender</div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</body>
+</html>

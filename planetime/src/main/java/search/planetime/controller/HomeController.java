@@ -30,5 +30,13 @@ public class HomeController {
         return "/login";
     }
 
+    @RequestMapping("/admin_live")
+    public String test4(){
+        return "/admin_live";
+    }
 
+    @RequestMapping("/admin_user")
+    public String test5(){
+        return "/admin_user";
+    }
 }
